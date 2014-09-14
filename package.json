@@ -13,6 +13,8 @@
   "license": "MIT",
   "devDependencies": {
     "event-stream": "^3.1.7",
+    "prelude-ls": "^1.1.1",
+    "smart-buffer": "^1.0.1",
     "smart-stream": "^0.2.0",
     "stream-buffer": "^1.0.0",
     "stream-parser": "^0.3.0"

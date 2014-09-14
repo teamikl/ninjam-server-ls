@@ -16,7 +16,8 @@ log = console.log.bind console
 
 config = do
   host: \127.0.0.1
-  port: 2049
+  port: 2050
+  keep-alive: 30 # seconds
   logging:
     info: true
     debug: true
@@ -50,6 +51,9 @@ const __debug__ = config.logging.debug
     conn.pipe parser
 
     # TODO: pipe to payload parser
+
+  .on \error, !(error) ->
+    log "[ERROR] #{error}"
 
   .listen config.port, !->
     ev.emit \server-start, "#{config.host}:#{config.port}"
