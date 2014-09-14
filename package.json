@@ -1,0 +1,19 @@
+{
+  "name": "ninjam-server",
+  "version": "0.0.0",
+  "description": "NINJAM Server",
+  "main": "server.ls",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "NINJAM"
+  ],
+  "author": "tea <teamikl@hotmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "event-stream": "^3.1.7",
+    "smart-stream": "^0.2.0",
+    "stream-parser": "^0.3.0"
+  }
+}
