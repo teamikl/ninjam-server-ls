@@ -55,4 +55,4 @@ const __debug__ = config.logging.debug
     ev.emit \server-start, "#{config.host}:#{config.port}"
 
 
-main! unless require.parent
+main! unless module.parent

@@ -14,8 +14,8 @@ const NET_MESSAGE_HEADER_SIZE = 5
 
 
 !function NetMessageParser
-  Transform.call this
-  this._bytes NET_MESSAGE_HEADER_SIZE, this.on-header
+  Transform.call @
+  @._bytes NET_MESSAGE_HEADER_SIZE, @.on-header
 
 util.inherits NetMessageParser, Transform
 StreamParser NetMessageParser.prototype
@@ -33,9 +33,9 @@ NetMessageParser.prototype.on-header = (buffer, output) !->
 
   # ignore keep-alive payload
   if len > 0
-    this._passthrough len
+    @._passthrough len
   else
-    this._bytes NET_MESSAGE_HEADER_SIZE, this.on-header
+    @._bytes NET_MESSAGE_HEADER_SIZE, @.on-header
 
 
 module.exports = do
