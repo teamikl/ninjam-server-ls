@@ -25,7 +25,7 @@ function parse-auth-challenge (payload)
 
 
 # keep-alive range is in range 0 to 255 (8 bits)
-veryfy-keep-alive = min 255 |> max 0
+verify-keep-alive = (min 255) . (max 0)
 
 
 function build-auth-challenge (challenge, server-caps, protocol-version, license-agreement)
@@ -57,3 +57,4 @@ module.exports = do
   version: \0.0.1
   parse-auth-challenge: parse-auth-challenge
   build-auth-challenge: build-auth-challenge
+  verify-keep-alive: verify-keep-alive

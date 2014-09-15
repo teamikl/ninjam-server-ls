@@ -2,6 +2,7 @@
 
 require! {
   assert
+  jasmine
   message: '../message'
 }
 global import all message
