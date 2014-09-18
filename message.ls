@@ -59,8 +59,23 @@ function parse-config-change-notify (stream)
     bpi: stream.readUInt16LE!
 
 
-function parse-userinfo-change-notify (stream)
-  # TODO: make this asunc version
+# TODO: how to make async interface?
+# see core library which provide sync/async function
+# and they can be functor.
+
+function parse-userinfo-change-notify (stream, callback)
+  do
+    callback parse-userinfo-change-notify-iter stream
+  while stream.length < stream._read-offset
+
+
+function parse-userinfo-change-notify-sync (stream)
+  result = []
+  parse-userinfo-change-notify stream, result.push
+  result
+
+
+function parse-userinfo-change-notify-iter (stream)
   do
     active: stream.readUInt8!
     channel-index: stream.readUInt8!
