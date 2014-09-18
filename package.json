@@ -14,6 +14,8 @@
   "devDependencies": {},
   "dependencies": {
     "event-stream": "^3.1.7",
+    "eventemitter2": "^0.4.14",
+    "install": "^0.1.7",
     "prelude-ls": "^1.1.1",
     "smart-buffer": "^1.0.1",
     "stream-parser": "^0.3.0"
