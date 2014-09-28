@@ -48,4 +48,4 @@ NetMessageParser.prototype.on-header = (buffer, output) !->
 
 
 module.exports = do
-  NetMessageParser
+  NetMessageParser: NetMessageParser

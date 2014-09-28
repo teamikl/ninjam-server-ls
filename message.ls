@@ -29,6 +29,22 @@ const KEEP_ALIVE = 0xFD
 const EXTENDED = 0xFE
 const INVALID = 0xFF
 
+MESSAGE_STRING = do
+  SERVER_AUTH_CHALLENGE: \ServerAuthChallenge
+  SERVER_AUTH_REPLY: \ServerAuthReply
+  SERVER_CONFIG_CHANGE_NOTIFY: \ServerConfigChangeNotify
+  SERVER_USER_INFO_CHANGE_NOTIFY: \ServerUserInfoChangeNotify
+  SERVER_DOWNLOAD_INTERVAL_BEGIN: \ServerDownloadIntervalBegin
+  SERVER_DOWNLOAD_INTERVAL_WRITE: \ServerDownloadIntervalWrite
+  CLIENT_AUTH_USER: \ClientAuthUser
+  CLIENT_SET_USER_MASK: \ClientSetUserMask
+  CLIENT_SET_CHANNEL_INFO: \ClientSetChannelInfo
+  CLIENT_UPLOAD_INTERVAL_BEGIN: \ClientUploadIntervalBegin
+  CLIENT_UPLOAD_INTERVAL_WRITE: \ClientUploadIntervalWrite
+  CHAT_MESSAGE: \ChatMessage
+  KEEP_ALIVE: \KeepAlive
+
+
 const KeepAlivePacket = new Buffer("FD00000000", "hex").toString()
 
 # keep-alive range is in range 0 to 255 (8 bits)
@@ -80,7 +96,7 @@ function parse-userinfo-change-notify-iter (stream)
     active: stream.readUInt8!
     channel-index: stream.readUInt8!
     volume: stream.readUInt16LE!
-    pan: stream.readInt8! # [-128 to 127]
+    pan: stream.readInt8!  # NOTE: range is [-128 to 127]
     username: stream.readStringNT!
     channel-name: stream.readStringNT!
 

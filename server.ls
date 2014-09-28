@@ -43,6 +43,9 @@ const __debug__ = config.logging.debug
     address = "#{conn.remote-address}:#{conn.remote-port}"
     parser = new NetMessageParser!
 
+    parser.on \message, (msg-type, buffer) !->
+      console.log "on message #{msg-type}"
+
     ev.emit \client-connected, address
 
     conn.on \end, !->
