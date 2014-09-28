@@ -11,5 +11,3 @@
 - [ ] protocol versioning
 - [ ] logging
 - [ ] TDD/BDD/E2E tests
-
-- [ ] MEAN stack? (MongoDB, Express, AngularJS, Node)
